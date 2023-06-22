@@ -7,8 +7,8 @@ RED = "#e7305b"
 GREEN = "#9bdeac"
 YELLOW = "#f7f5dd"
 FONT_NAME = "Courier"
-WORK_MIN = 25
-SHORT_BREAK_MIN = 5
+WORK_MIN = 0.1
+SHORT_BREAK_MIN = 0.1
 LONG_BREAK_MIN = 20
 
 reps = 0
@@ -50,14 +50,15 @@ def start_timer():
     else:
         count_down(work_sec)
         highlight_text_label.config(text = "Work", fg = GREEN)
-        work_done_count = math.floor(reps / 2)
-        check_marks_text = ""
-        
-        # updating label with check marks
-        for _ in range(work_done_count):
-            check_marks_text += "✔"
 
-        check_marks_label.config(text = check_marks_text)
+    work_done_count = math.floor(reps / 2)
+    check_marks_text = ""
+    
+    # updating label with check marks
+    for _ in range(work_done_count):
+        check_marks_text += "✔"
+
+    check_marks_label.config(text = check_marks_text)
 
 # ---------------------------- COUNTDOWN MECHANISM ------------------------------- # 
 def count_down(count):
